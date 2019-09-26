@@ -1,0 +1,112 @@
+*{
+	margin: 0;padding: 0;outline: none;text-decoration: none;font-size: 12px;
+}
+body{
+	padding-top: 30px;background: url(../img/bg.png);padding-bottom: 60px;min-height: 100%;background-repeat-x: no-repeat;
+}
+.headBox{
+	position: fixed;width: 100%;height: 36px;line-height: 36px;text-align: center;color: #ffffff;
+	background-image: linear-gradient(to right , #33cec9, #53b0d9);font-size: 14px;left: 0;top: 0;
+	z-index: 999;
+}
+.goback{
+	position: absolute;left: 0;top: 0;height: 36px;padding: 0 15px;
+}
+.goback img{
+	height: 24px;width: auto;margin-top: 6px;
+}
+
+
+.main{
+	padding-top: 15%;
+}
+.mainhead{
+	text-align: center;
+}
+.mainhead img{
+	width: 50%;height: auto;
+}
+.wrp{
+	padding: 0 5%;
+}
+.box{
+	width: 100%;height: 230px;
+	background-image: url('../img/drawbg.png');
+	background-repeat: no-repeat;
+	background-size: 100% 100%;position: relative;left: 4%;overflow: hidden;
+}
+.boxBox{
+	width: 52%;height: 100px;overflow: hidden;position: relative;top: 60px;left: 19%;
+}
+.box_main{
+	position: absolute;width: 100%;left: 0;top: 0%;overflow: hidden;
+}
+.box-img{
+	text-align: center;height: 100px;
+}
+.box_main img{
+	height: 60px;width: auto;max-width: 80%;margin-top: 27px;
+}
+
+
+.btn{
+	margin-top: 40px;
+}
+.btnBox{
+	width: 60%;margin: 0 auto;background-image: url(../img/goon.png);background-repeat: no-repeat;background-size: 100% 100%;box-sizing: border-box;padding-right: 10%;text-align: right;color: #FFFFFF;font-size: 20px;
+}
+
+.attentionBox{
+	color: #FFFFFF;margin-top: 30px;padding: 0 30px;font-size: 14px;
+}
+.attentionBox li{
+	display: block;line-height: 30px;font-size: 14px;
+}
+.attentionBox span{
+	display: block;float: left;border-radius: 30px;width: 20px;height: 20px;line-height: 20px;margin-top: 5px;background: #416ee7;text-align: center;margin-right: 6px;
+}
+
+
+.footBox{
+	height: 60px;width: 100%;display: block;position: fixed;bottom: 0;left: 0;background: #FFFFFF;
+}
+
+.footLi{
+	display: block;float: left;width: 20%;text-align: center;line-height: 22px;
+}
+.footLi img{
+	height: 18px;width: auto;display: block;text-align: center;margin: 0 auto;margin-top: 15px;
+}
+.footA{
+	color: #666;
+}
+
+
+.tolistBox{
+	position: absolute;right: 0;top: 50px;width: 76px;height: 26px;background-image: url(../img/navbg.png);background-repeat: no-repeat;
+	background-size: auto 100%;
+}
+.tolistA{
+	text-align: center;color: #FFFFFF;width: 76px;display: block;line-height: 26px;
+}
+
+.prizeBoxBg{
+	position: fixed;width: 100%;height: 100%;background: rgba(0,0,0,.3);top: 30px;left: 0;
+}
+.prizeBox{
+	position: absolute;width: 90%;left: 5%;height: 40%;background-image: url(../img/getbg.png);background-repeat: no-repeat;background-size: 100% 100%;top: 15%;text-align: center;
+}
+.prizeBox>img{
+	width: 30%;height: auto;height: 50%;margin-top: 12%;
+}
+.againBtn{
+	width: 50%;margin: 0 auto;padding-top: 25px;
+}
+.againBtn img{width: 100%;height: auto;}
+
+.closebox{
+	position: absolute;width: 10%;top: 62%;left: 45%;
+}
+.closebox img{
+	width: 100%;height: auto;
+}

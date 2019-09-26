@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="zh" style="height: 100%;">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+	<title>抽奖</title>
+	<link rel="stylesheet" type="text/css" href="css/index.css"/>
+	<script src="js/jquery.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/index.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<script type="text/javascript">
+	$(function(){
+		var bdWid = $('body').width();
+		$('.wrp').height(bdWid*.5827 +'px');
+		$('.btnBox').height(bdWid*.127551 +'px')
+		$('.btnBox').css('line-height',bdWid*.127551 -1 +'px')
+	})
+</script>
+<body>
+	<div class="headBox">
+		<div class="goback" onclick="history.back(-1)"><img src="img/Left.png"/></div>
+		抽奖
+	</div>
+	
+	
+	<!--抽奖-->
+	<div class="main">
+		<p class="mainhead">
+			<img src="img/jx.png"/>
+		</p>
+	    <div class="wrp">
+	        <div class="box">
+	        	<div class="num num2 boxBox">
+		            <div class="num-con num-con2 box_main">
+		                <div class="box-img" data-id="001">
+		                	<img src="img/goods.png"/>
+		                </div>
+		                <div class="box-img" data-id="002">
+		                	<img src="img/goods2.png"/>
+		                </div>
+		                <div class="box-img" data-id="003">
+		                	<img src="img/drawbg.png"/>
+		                </div>
+		                <div class="box-img" data-id="004">
+		                	<img src="img/goon.png"/>
+		                </div>
+		            </div>
+		        </div>
+	        </div>
+	    </div>
+	</div>
+	<!--抽奖按钮-->
+	<div class="btn">
+	    <div class="container">
+	        <div class="btn-btn">
+	        	<div class="btnBox" id="action">(5)</div>
+	        </div>
+	    </div>
+	</div>
+	
+	
+	<!--固定按钮-->
+	<div class="tolistBox">
+		<a href="prizelist.html" class="tolistA">奖品列表</a>
+	</div>
+	
+	<!--文字备注-->
+	<div class="attentionBox">
+		<p>注:</p>
+		<ul>
+			<li><span>1</span>报名成功后可进行一次抽奖</li>
+			<li><span>2</span>首次分享可获得一次抽奖机会</li>
+			<li><span>3</span>首次对作品投完5票后可获得一次抽奖机会</li>
+			<li><span>4</span>首次购买礼物后可获得一次抽奖机会</li>
+			<li><span>5</span>关注公众号，不定期赠送抽奖机会</li>
+		</ul>
+	</div>
+	
+	
+	<!--抽中后显示-->
+	<div class="prizeBoxBg" style="display: none;">
+		<div class="prizeBox">
+			<img src="img/goods.png" id="getImg"/>
+			<div class="againBtn">
+				<img src="img/againBtn.png" onclick="closed();"/>
+			</div>
+		</div>
+		<div class="closebox">
+			<img src="img/closeicon.png" onclick="closed()"/>
+		</div>
+	</div>
+	
+	
+	<!--底部导航-->
+	<div class="footBox">
+		<ul class="footul">
+			<li class="footLi"><a href="#" class="footA"><img src="img/homeicon.png" alt="" />首页</a></li>
+			<li class="footLi"><a href="#" class="footA"><img src="img/gzicon.png" alt="" />规则</a></li>
+			<li class="footLi" style="position: relative;top: -30px;"><a href="#" class="footA"><img src="img/bmicon.png" alt="" style="height: 50px;"/>报名</a></li>
+			<li class="footLi"><a href="#" class="footA"><img src="img/tgicon.png" alt="" />投稿</a></li>
+			<li class="footLi"><a href="#" class="footA"><img src="img/mineicon.png" alt="" />我的</a></li>
+		</ul>
+	</div>
+</body>
+<script type="text/javascript">
+	var itemcount = $('.box_main').children().length;//物品真实个数
+	$(function(){
+		var items = $('.box_main').children();
+		$.each(items, function(i,v) {
+			 var cloneitem = $(v).clone();
+			 $('.box_main').append(cloneitem);//遍历克隆物品，这里是为了避免物品个数过少导致随机数范围太小而转不起来
+		});
+	})
+	
+	$("#action").click(function () {
+		if(!flag){
+			flag=true;
+			reset();
+			letGo();
+			setTimeout(function () {
+				flag=false;
+				if(index==2){
+					$(".fix,.pop-form").show();
+				}else{
+					$(".fix,.pop").show();
+					//$(".pop-text span").text(""+String(4-TextNum1)+(8-TextNum2))
+				}
+			},2000);
+			index++;
+		}
+	});
+
+	var flag=false;
+	var index=0;	
+	var TextNum2
+	function letGo(){
+		var mainHei = $('.box-img').height();//每一项物品的所占高度
+		var goodscount = $('.box-img').length;//页面物品个数
+		var max=0;//随机数最大值
+		var min=0;//随机数最小值
+		if(goodscount>=3){
+			max = goodscount-3;
+			min = 1
+		}else{
+			max = goodscount-2;
+			min = 0;
+		}
+		
+		TextNum2=parseInt(Math.random()*(max-min+1)+min);//随机数
+		console.log(TextNum2 + ':'+TextNum2%itemcount)
+		var num2=[];//创建一个空数组用于存放每一项页面物品要显示的top值
+//		根据页面物品个数存放top值
+        for (var i=0;i<goodscount;i++) {
+        	num2.push(-1*i*mainHei)
+        }
+        //num2=[-1*mainHei,-2*mainHei,-3*mainHei,-4*mainHei,-5*mainHei,-3*mainHei][TextNum2];
+        num2=num2[TextNum2];//获取一个随机top高度
+        
+        //给页面添加动画效果更改top值
+		$(".num-con2").animate({"top":-1*mainHei},200,"linear", function () {
+			$(this).css("top",0).animate({"top":num2},1000,"linear");
+		});		
+		var numcount = Math.abs(num2);//取随机获得的top值得绝对值
+		
+		//用top绝对值除以每一项的高度获取显示的是第几项
+		var count = numcount/mainHei; 
+		
+		//用显示项的坐标除以项目真实数量的余数来判断显示的是哪一个项目
+		var showindex = count%itemcount;
+		var getgoods = $('.box_main').children().eq(showindex).data('id');//获取到所抽取的物品的id
+		var getImg = $('.box_main').children().eq(showindex).find('img').attr('src');//获取到所抽取物品的img路径
+		
+		setTimeout(function(){		
+			$('#getImg').attr('src',getImg);//把获取到的路径添加至模态框
+			$('.prizeBoxBg').show();//显示模态框
+		},1500)
+	}
+	
+	//每一次抽奖之前先返回第一个物品
+	function reset(){
+		var mainHei = $('.box-img').height()
+		$(".num-con2").css({"top":0});
+	}
+
+
+
+	//关闭模态框
+	function closed(){
+		$('.prizeBoxBg').hide();
+	}
+</script>
+</html>

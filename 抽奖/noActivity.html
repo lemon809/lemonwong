@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh" style="height: 100%;">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+	<title>活动提示</title>
+</head>
+<style type="text/css">
+	body{
+		background-image: url(img/bgg.png);background-position: 0 30px;background-repeat-x: no-repeat;background-repeat-y: repeat;height: 100%;font-size: 16px;font-family: "microsoft yahei";
+	}
+	.headBox{
+		position: fixed;width: 100%;height: 36px;line-height: 36px;text-align: center;color: #ffffff;
+		background-image: linear-gradient(to right , #33cec9, #53b0d9);font-size: 14px;left: 0;top: 0;
+	}
+	.goback{
+		position: absolute;left: 0;top: 0;height: 36px;padding: 0 15px;
+	}
+	.goback img{
+		height: 24px;width: auto;margin-top: 6px;
+	}
+	
+	.box{
+		height: 100%;box-sizing: border-box;padding-top: 60%;
+	}
+	.boxTop{
+		width: 60%;margin: 0 auto;
+	}
+	.boxTop img{
+		width: 100%;height: auto;
+	}
+	.time{
+		text-align: center;padding-top: 5%;line-height: 30px;color: #FFFFFF;
+	}
+</style>
+<body>
+	<div class="headBox">
+		<div class="goback" onclick="history.back(-1)"><img src="img/Left.png"/></div>
+		活动提示
+	</div>
+	
+	
+	<!--活动暂未开启-->
+	<div class="box">
+		<p class="boxTop"><img src="img/nostart.png"/></p>
+		<p class="time">
+			<span style="font-size: 15px;">开启时间</span>
+			<br />
+			2019.06.23 ~ 2019.06.25
+		</p>
+	</div>
+	
+	
+	<!--活动结束-->
+	<div class="box">
+		<p class="boxTop"><img src="img/end.png"/></p>
+	</div>
+</body>
+</html>
